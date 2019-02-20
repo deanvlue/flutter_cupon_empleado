@@ -12,47 +12,46 @@ class MyApp extends StatelessWidget{
         appBar: AppBar(
           title: new Text('Flutter Layout demo'),
         ),
-        body:ListView(
-          children: <Widget>[
-            Column(
+        body:Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            child:    
-                              Text('Carlos Muñoz',
-                                style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 34,
-                                fontWeight: FontWeight.w200,
-                                ),
-                              ),
-                          )
-                        ]
-                      ),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Image.asset(
-                      'images/cupon_empleado.png', 
-                      fit:BoxFit.cover
-                    )
-                  ],
-                ),
+                nombreText,
+                cuponDisplay,
               ],
             )
-          ],
-        )
-      )
-    );
+        ),
+      );
   }
 }
+
+Widget cuponDisplay =Container(
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.end,
+    crossAxisAlignment: CrossAxisAlignment.end,
+    children: <Widget>[
+    Expanded(
+      child: Column(
+      children: <Widget>[
+        Image.asset(
+          'images/cupon_empleado.png',
+          fit:BoxFit.cover,
+        )
+      ],
+    ),)
+  ],)
+);
+
+Widget nombreText =Container(
+  child: Row(children: <Widget>[
+    Expanded(child: Column(
+      children: <Widget>[
+        Text('Carlos Muñoz',
+        style: TextStyle(
+          fontSize: 20,
+          color: Colors.white
+        ),
+        )
+      ],
+    ),)
+  ],)
+);
